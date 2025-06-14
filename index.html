@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel | Technical Trainer (Mathematics & Computer Studies)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f43f5e;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .dark {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        
+        .dark .bg-gray-100 {
+            background-color: #1e293b;
+        }
+        
+        .dark .text-gray-800 {
+            color: #f8fafc;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #334155;
+        }
+        
+        
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .drop-shadow-primary {
+            filter: drop-shadow(0 5px 10px rgba(99, 102, 241, 0.3));
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .skill-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 30px;
+            height: calc(100% - 30px);
+            width: 2px;
+            background-color: var(--primary);
+        }
+        
+        .testimonial-card {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+        
+        .testimonial-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Dark mode toggle -->
+    <button id="theme-toggle" class="fixed z-50 bottom-6 right-6 bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg hover:shadow-xl transition-all">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-800 dark:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-gray-800 dark:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold text-gradient">Samuel</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white px-1">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white px-1">About</a>
+                    <a href="#skills" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white px-1">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white px-1">Projects</a>
+                    <a href="#resume" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white px-1">Resume</a>
+                    <a href="#testimonials" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white px-1">Testimonials</a>
+                    <a href="#contact" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white px-1">Contact</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Projects</a>
+                <a href="#resume" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Resume</a>
+                <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Testimonials</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div class="lg:w-1/2 text-center lg:text-left">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 dark:text-white">
+                    Hi, I'm <span class="text-gradient">Samuel</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
+                    Technical Trainer in Mathematics & Computer Studies
+                </h2>
+                <p class="text-gray-500 dark:text-gray-400 mb-8 max-w-lg">
+                    Bridging the gap between theoretical concepts and practical applications in mathematics and computer science education. Empowering students with real-world technical skills.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#projects" class="bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="border-2 border-indigo-500 text-indigo-500 dark:text-indigo-300 dark:border-indigo-300 hover:bg-indigo-50 dark:hover:bg-gray-700 font-medium py-3 px-6 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                        Contact Me
+                    </a>
+                </div>
+                <div class="flex justify-center lg:justify-start gap-6 mt-10">
+                    <a href="#" class="social-icon text-2xl text-gray-600 hover:text-indigo-500 dark:text-gray-300 dark:hover:text-indigo-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-gray-600 hover:text-indigo-500 dark:text-gray-300 dark:hover:text-indigo-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-gray-600 hover:text-indigo-500 dark:text-gray-300 dark:hover:text-indigo-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon text-2xl text-gray-600 hover:text-indigo-500 dark:text-gray-300 dark:hover:text-indigo-300">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="lg:w-1/2 flex justify-center relative mt-10 lg:mt-0">
+                <div class="relative drop-shadow-primary">
+                    <img src="profile-img2.jpg" 
+                         alt="Samuel" 
+                         class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full border-4 border-white dark:border-gray-800 floating">
+                </div>
+                <div class="absolute -bottom-3 -right-3 bg-indigo-100 dark:bg-gray-700 px-4 py-2 rounded-full shadow-md">
+                    <span class="text-indigo-500 dark:text-indigo-300 font-medium">1 Year Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md mt-8 mb-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
+                About <span class="text-gradient">Me</span>
+            </h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto rounded-full"></div>
+            <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+                Get to know the person behind the code
+            </p>
+        </div>
+        
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+            <div class="lg:w-1/3">
+                <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                    <img src="profile-img.jpg.jpg" 
+                         alt="Samuel working" 
+                         class="w-full h-auto rounded-lg shadow-md">
+                </div>
+            </div>
+            <div class="lg:w-2/3">
+                <h3 class="text-2xl font-bold mb-6 dark:text-white">About My Teaching Approach</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-6">
+                    I'm a dedicated technical trainer specializing in mathematics and computer studies, with extensive experience in curriculum development and hands-on technical training. My teaching philosophy centers on making complex concepts accessible through practical applications and real-world examples.
+                </p>
+                <p class="text-gray-600 dark:text-gray-300 mb-6">
+                    My sessions combine theoretical foundations with hands-on exercises, ensuring students develop both conceptual understanding and practical skills. I emphasize problem-solving techniques that bridge the gap between classroom learning and industry requirements.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-gray-200">Specializations:</h4>
+                        <p class="text-gray-600 dark:text-gray-400">Mathematics & CS</p>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-gray-200">Teaching Methodology:</h4>
+                        <p class="text-gray-600 dark:text-gray-400">Hands-on, Practical</p>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                        <h4 class="font-bold text-gray-800 dark:text-gray-200">Training Formats:</h4>
+                        <p class="text-gray-600 dark:text-gray-400">Classroom & Online</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact" class="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-6 rounded-lg shadow-md transition-all">
+                        Contact Me
+                    </a>
+                    <a href="#" class="border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 font-medium py-2 px-6 rounded-lg shadow-sm transition-all">
+                        Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
+                My <span class="text-gradient">Technical Skills</span>
+            </h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto rounded-full"></div>
+            <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+                Comprehensive expertise in Mathematics, Computer Studies, and Instructional Methods
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Mathematics Skills -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-indigo-100 dark:bg-gray-700 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-square-root-alt text-2xl text-indigo-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold dark:text-white">Mathematics</h3>
+                </div>
+                <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>Proficient in GeoGebra, MATLAB, SPSS, Desmos, Excel</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>Applied mathematics, statistics & probability</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>Engineering mathematics & numerical computation</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>Algorithmic problem-solving (Python, C)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Computer Studies Skills -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-indigo-100 dark:bg-gray-700 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-laptop-code text-2xl text-indigo-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold dark:text-white">Computer Studies</h3>
+                </div>
+                <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>Python, Java, C++, JavaScript, HTML/CSS</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>Android & web development</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>SQL database management</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>Networking (Cisco Packet Tracer), cybersecurity</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>Windows & Linux system administration</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Instructional & Professional Skills -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-indigo-100 dark:bg-gray-700 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-chalkboard-teacher text-2xl text-indigo-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold dark:text-white">Instructional & Professional</h3>
+                </div>
+                <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>CBET-aligned curriculum design (KICD/TVETA)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>E-learning tools (Google Forms, Moodle)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>Computer lab & workshop management</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>Excellent communication & mentorship</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-indigo-500 mr-2 mt-1"></i>
+                        <span>Research, innovation & data protection</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md mt-8 mb-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
+                My <span class="text-gradient">Projects</span>
+            </h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto rounded-full"></div>
+            <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+                A selection of my recent work and personal projects
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden">
+                <div class="relative overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="E-Commerce Dashboard" 
+                         class="project-image w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                        <a href="#" class="bg-white text-indigo-600 font-medium py-2 px-4 rounded-full shadow-lg">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 dark:text-white">E-Commerce Analytics Dashboard</h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-4">
+                        A comprehensive analytics platform for e-commerce businesses with real-time data visualization.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-indigo-100 dark:bg-gray-800 text-indigo-800 dark:text-indigo-300 text-xs px-3 py-1 rounded-full">React</span>
+                        <span class="bg-indigo-100 dark:bg-gray-800 text-indigo-800 dark:text-indigo-300 text-xs px-3 py-1 rounded-full">D3.js</span>
+                        <span class="bg-indigo-100 dark:bg-gray-800 text-indigo-800 dark:text-indigo-300 text-xs px-3 py-1 rounded-full">Node.js</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden">
+                <div class="relative overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Fitness App" 
+                         class="project-image w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                        <a href="#" class="bg-white text-indigo-600 font-medium py-2 px-4 rounded-full shadow-lg">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 dark:text-white">Fitness Progress Tracker</h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-4">
+                        Mobile-first fitness application with workout customization and progress tracking.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-indigo-100 dark:bg-gray-800 text-indigo-800 dark:text-indigo-300 text-xs px-3 py-1 rounded-full">React Native</span>
+                        <span class="bg-indigo-100 dark:bg-gray-800 text-indigo-800 dark:text-indigo-300 text-xs px-3 py-1 rounded-full">Firebase</span>
+                        <span class="bg-indigo-100 dark:bg-gray-800 text-indigo-800 dark:text-indigo-300 text-xs px-3 py-1 rounded-full">Redux</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden">
+                <div class="relative overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" 
+                         alt="Task Management" 
+                         class="project-image w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                        <a href="#" class="bg-white text-indigo-600 font-medium py-2 px-4 rounded-full shadow-lg">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 dark:text-white">Team Task Manager</h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-4">
+                        Collaborative workspace for teams with real-time updates and productivity analytics.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-indigo-100 dark:bg-gray-800 text-indigo-800 dark:text-indigo-300 text-xs px-3 py-1 rounded-full">Vue.js</span>
+                        <span class="bg-indigo-100 dark:bg-gray-800 text-indigo-800 dark:text-indigo-300 text-xs px-3 py-1 rounded-full">Socket.io</span>
+                        <span class="bg-indigo-100 dark:bg-gray-800 text-indigo-800 dark:text-indigo-300 text-xs px-3 py-1 rounded-full">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden">
+                <div class="relative overflow-hidden h-48">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Portfolio Design" 
+                         class="project-image w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                        <a href="#" class="bg-white text-indigo-600 font-medium py-2 px-4 rounded-full shadow-lg">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 dark:text-white">Creative Portfolio Design</h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-4">
+                        Modern, responsive portfolio template with animated transitions and dark mode.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-indigo-100 dark:bg-gray-800 text-indigo-800 dark:text-indigo-300 text-xs px-3 py-1 rounded-full">HTML/CSS</span>
+                        <span class="bg-indigo-100 dark:bg-gray-800 text-indigo-800 dark:text-indigo-300 text-xs px-3 py-1 rounded-full">JavaScript</span>
+                        <span class="bg-indigo-100 dark:bg-gray-800 text-indigo-800 dark:text-indigo-300 text-xs px-3 py-1 rounded-full">GSAP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="#" class="inline-block border-2 border-indigo-500 text-indigo-500 dark:text-indigo-300 dark:border-indigo-300 hover:bg-indigo-50 dark:hover:bg-gray-700 font-medium py-3 px-8 rounded-lg shadow-sm hover:shadow-lg transition-all">
+                View All Projects
+            </a>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
+                My <span class="text-gradient">Resume</span>
+            </h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto rounded-full"></div>
+            <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+                My professional journey and achievements
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Education -->
+            <div>
+                <h3 class="text-xl font-bold mb-6 dark:text-white flex items-center gap-2">
+                    <i class="fas fa-graduation-cap text-indigo-500"></i>
+                    <span>Education</span>
+                </h3>
+                
+                <div class="relative pl-12 space-y-8">
+                    <!-- Education 1 -->
+                    <div class="timeline-item relative">
+                        <div class="absolute left-0 top-0 flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 dark:bg-gray-700 text-indigo-500">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="ml-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+                            <h4 class="font-bold dark:text-white">Dip.in Maths&Computer Studies</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">Kenya School of TVET • 2025 - 2026</p>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Extensive Training on Instructional design and institutional management.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Education 2 -->
+                    <div class="timeline-item relative">
+                        <div class="absolute left-0 top-0 flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 dark:bg-gray-700 text-indigo-500">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="ml-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+                            <h4 class="font-bold dark:text-white">B.Sc. Mathematics and Computer Science</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">University of Washington • 2019 - 2024</p>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Majored in Applied Mathematics and Computing and also the areas of Machine learning, artificial intelligence,Big Data and Blockchain.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Experience -->
+            <div>
+                <h3 class="text-xl font-bold mb-6 dark:text-white flex items-center gap-2">
+                    <i class="fas fa-briefcase text-indigo-500"></i>
+                    <span>Experience</span>
+                </h3>
+                
+                <div class="relative pl-12 space-y-8">
+                    
+                    
+                    <!-- Experience 1 -->
+                    <div class="timeline-item relative">
+                        <div class="absolute left-0 top-0 flex items-center justify-center w-10 h-10 rounded-full bg-indigo-100 dark:bg-gray-700 text-indigo-500">
+                            <i class="fas fa-square-root-alt"></i>
+                        </div>
+                        <div class="ml-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+                            <h4 class="font-bold dark:text-white">Mathematics Instructor</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">EXODUS junior Academy • 2024 -2025</p>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Taught intermediate mathematics courses with emphasis on real-world applications and computer-based problem solving.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+            <a href="#" class="inline-flex items-center bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white font-medium py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all">
+                <i class="fas fa-download mr-2"></i>
+                Download Full Resume
+            </a>
+        </div>
+    </section>
+     <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">
+                Get In <span class="text-gradient">Touch</span>
+            </h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto rounded-full"></div>
+            <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+                Feel free to reach out for collaborations or just a friendly hello
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md">
+                <h3 class="text-xl font-bold mb-6 dark:text-white">Contact Information</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="bg-indigo-100 dark:bg-gray-700 p-3 rounded-lg mr-4">
+                            <i class="fas fa-envelope text-indigo-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium dark:text-white">Email</h4>
+                            <p class="text-gray-600 dark:text-gray-400">samuelbarasa2019@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-indigo-100 dark:bg-gray-700 p-3 rounded-lg mr-4">
+                            <i class="fas fa-phone text-indigo-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium dark:text-white">Phone</h4>
+                            <p class="text-gray-600 dark:text-gray-400">0110939815</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md">
+                <h3 class="text-xl font-bold mb-6 dark:text-white">Send Me a Message</h3>
+                <form class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"></textarea>
+                    </div>
+                    <button type="submit" class="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2 px-6 rounded-lg shadow-md transition-all">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+</html>
